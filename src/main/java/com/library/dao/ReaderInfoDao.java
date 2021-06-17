@@ -1,5 +1,6 @@
 package com.library.dao;
 
+import com.library.pojo.Book;
 import com.library.pojo.ReaderInfo;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -42,5 +43,14 @@ public class ReaderInfoDao {
         } else {
             return -1;
         }
+    }
+    public int matchReader(final String searchWord) {
+        String search = "%" + searchWord + "%";
+        return sqlSessionTemplate.selectOne(NAMESPACE + "matchReader", search);
+    }
+    public ArrayList<ReaderInfo> queryReader(final String searchWord) {
+        String search = "%" + searchWord + "%";
+        List<ReaderInfo> result = sqlSessionTemplate.selectList(NAMESPACE + "queryReader", search);
+        return (ArrayList<ReaderInfo>) result;
     }
 }

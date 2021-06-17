@@ -47,6 +47,27 @@ background-attachment: fixed;">
 </c:if>
 </div>
 
+<div style="padding: 70px 550px 10px">
+    <form   method="post" action="querybook2.html" class="form-inline"  id="searchform">
+        <div class="input-group">
+            <input type="text" placeholder="输入读者姓名" class="form-control" id="search" name="searchWord" class="form-control">
+            <span class="input-group-btn">
+                            <input type="submit" value="搜索" class="btn btn-default">
+            </span>
+        </div>
+    </form>
+
+    <script>
+        $("#searchform").submit(function () {
+            var val=$("#search").val();
+            if(val==''){
+                alert("请输入关键字");
+                return false;
+            }
+        })
+    </script>
+</div>
+<div style="position: relative;top: 10%">
 
 <div class="panel panel-default" style="position:relative;top: 80px;width: 90%;margin-left: 5%">
     <div class="panel-heading">
