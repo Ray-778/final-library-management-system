@@ -13,13 +13,15 @@ Library Management System
 共6张表
 
 1.  管理员登录 admin
-/ 名       / 类型    / 长度 / 小数点 / NULL / 用途   / 键   /
-/ :------- / :------ / ---- / ------ / ---- / ------ / ---- /
-/ admin_id / bigint  / 20   / 0      / 否   / 账号   / ✔    /
-/ password / varchar / 15   / 0      / 否   / 密码   /      /
-/ username / varchar / 15   / 0      / 是   / 用户名 /      /
+
+| 名       | 类型    | 长度 | 小数点 | NULL | 用途   | 键   |
+| :------- | :------ | ---- | ------ | ---- | ------ | ---- |
+| admin_id | bigint  | 20   | 0      | 否   | 账号   | ✔    |
+| password | varchar | 15   | 0      | 否   | 密码   |      |
+| username | varchar | 15   | 0      | 是   | 用户名 |      |
 
 2.  图书书籍表 book_info
+
 | 名           | 类型    | 长度 | 小数点 | NULL | 用途     | 键   |
 | :----------- | :------ | ---- | ------ | ---- | -------- | ---- |
 | book_id      | bigint  | 20   | 0      | 否   | 图书号   | ✔    |
@@ -35,12 +37,14 @@ Library Management System
 | number       | int     | 11   | 0      | 是   | 剩余数量 |      |
 
 3.  图书分类表 class_info
+
 | 名         | 类型    | 长度 | 小数点 | NULL | 用途   | 键   |
 | :--------- | :------ | ---- | ------ | ---- | ------ | ---- |
 | class_id   | int     | 11   | 0      / 否   | 类别号 | ✔    |
 | class_name | varchar | 15   | 0      | 否   | 类别名 |      |
 
 4.  借阅信息表 lend_list
+
 | 名        | 类型   | 长度 | 小数点 | NULL | 用途     | 键   |
 | :-------- | :----- | ---- | ------ | ---- | -------- | ---- |
 | ser_num   | bigint | 20   | 0      | 否   | 流水号   | ✔    |
@@ -50,6 +54,7 @@ Library Management System
 | back_date | date   | 20   | 0      | 是   | 归还日期 |      |
 
 5.  借阅卡信息表 reader_card
+
 | 名        | 类型    | 长度 | 小数点 | NULL | 用途     | 键   |
 | :-------- | :------ | ---- | ------ | ---- | -------- | ---- |
 | reader_id | bigint  | 20   | 0      | 否   | 读者证号 | ✔    |
@@ -57,6 +62,7 @@ Library Management System
 | username  | varchar | 15   | 0      | 是   | 用户名   |      |
 
 6.  读者信息表 reader_info
+
 | 名        | 类型    | 长度 | 小数点 | NULL | 用途     | 键   |
 | :-------- | :------ | ---- | ------ | ---- | -------- | ---- |
 | reader_id | bigint  | 20   | 0      | 否   | 读者证号 | ✔    |
