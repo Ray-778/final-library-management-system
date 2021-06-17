@@ -50,7 +50,7 @@ background-attachment: fixed;">
 <div style="padding: 70px 550px 10px">
     <form   method="post" action="querybook2.html" class="form-inline"  id="searchform">
         <div class="input-group">
-            <input type="text" placeholder="输入读者姓名" class="form-control" id="search" name="searchWord" class="form-control">
+            <input type="text" placeholder="输入读者姓名或地址或电话" class="form-control" id="search" name="searchWord" class="form-control">
             <span class="input-group-btn">
                             <input type="submit" value="搜索" class="btn btn-default">
             </span>
