@@ -1,5 +1,7 @@
 package com.library.controller;
 
+import com.library.pojo.Book;
+import com.library.pojo.Lend;
 import com.library.pojo.ReaderCard;
 import com.library.service.BookService;
 import com.library.service.LendService;
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 
 @Controller
 public class LendController {
@@ -20,6 +23,17 @@ public class LendController {
     private BookService bookService;
 
 
+    @RequestMapping("/querylend.html")
+    public ModelAndView queryBookDo(String searchWord) {
+        if (lendService.matchBook(searchWord)) {
+            ArrayList<Lend> books = lendService.queryBook(searchWord);
+            ModelAndView modelAndView = new ModelAndView("admin_lend_list");
+            modelAndView.addObject("list", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("admin_lend_list", "error", "没有匹配的读者证号");
+        }
+    }
 
     @RequestMapping("/lendlist.html")
     public ModelAndView lendList(HttpServletRequest request) {

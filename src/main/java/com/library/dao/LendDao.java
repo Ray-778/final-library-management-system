@@ -18,6 +18,17 @@ public class LendDao {
 
     private final static String NAMESPACE = "com.library.dao.LendDao.";
 
+    public int matchBook(final String searchWord) {
+        String search = searchWord;
+        return sqlSessionTemplate.selectOne(NAMESPACE + "matchBook", search);
+    }
+
+    public ArrayList<Lend> queryBook(final String searchWord) {
+        String search = searchWord;
+        List<Lend> result = sqlSessionTemplate.selectList(NAMESPACE + "queryBook", search);
+        return (ArrayList<Lend>) result;
+    }
+
     public int returnBookOne(final long book_id, long reader_id) {
         Map<String, Object> map = new HashMap<>();
         map.put("book_id", book_id);

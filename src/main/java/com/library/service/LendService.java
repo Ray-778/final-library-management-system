@@ -12,6 +12,13 @@ public class LendService {
     @Autowired
     private LendDao lendDao;
 
+
+    public ArrayList<Lend> queryBook(String searchWord) {
+        return lendDao.queryBook(searchWord);
+    }
+    public boolean matchBook(String searchWord) {
+        return lendDao.matchBook(searchWord) > 0;
+    }
     public boolean returnBook(long bookId, long readerId){
         return lendDao.returnBookOne(bookId, readerId)>0 && lendDao.returnBookTwo(bookId)>0;
     }
