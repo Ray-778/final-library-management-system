@@ -40,7 +40,7 @@ Library Management System
 ![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135744.png)
 
 11.  图书信息的添加
-![Image text](
+![Image text]
 
 读者：
 1. 读者首页
