@@ -1,6 +1,7 @@
 package com.library.service;
 
 import com.library.dao.ReaderInfoDao;
+import com.library.pojo.Book;
 import com.library.pojo.ReaderInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,13 @@ public class ReaderInfoService {
 
     public long addReaderInfo(ReaderInfo readerInfo) {
         return readerInfoDao.addReaderInfo(readerInfo);
+    }
+
+    public boolean matchReader(String searchWord) {
+        return readerInfoDao.matchReader(searchWord) > 0;
+    }
+
+    public ArrayList<ReaderInfo> queryReader(String searchWord) {
+        return readerInfoDao.queryReader(searchWord);
     }
 }

@@ -1,5 +1,6 @@
 package com.library.controller;
 
+import com.library.pojo.Book;
 import com.library.pojo.ReaderCard;
 import com.library.pojo.ReaderInfo;
 import com.library.service.LoginService;
@@ -44,6 +45,19 @@ public class ReaderController {
         readerInfo.setSex(sex);
         readerInfo.setBirth(date);
         return readerInfo;
+    }
+    @RequestMapping("/querybook2.html")
+    public ModelAndView queryBookDo(String searchWord) {
+        if (readerInfoService.matchReader(searchWord)) {
+            ArrayList<ReaderInfo> readers = readerInfoService.queryReader(searchWord);
+
+
+            ModelAndView modelAndView = new ModelAndView("admin_readers");
+            modelAndView.addObject("readers", readers);
+            return modelAndView;
+        } else {
+            return new ModelAndView("admin_readers", "error", "没有匹配的图书");
+        }
     }
 
 
