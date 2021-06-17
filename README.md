@@ -40,7 +40,7 @@ Library Management System
 
 | 名         | 类型    | 长度 | 小数点 | NULL | 用途   | 键   |
 | :--------- | :------ | ---- | ------ | ---- | ------ | ---- |
-| class_id   | int     | 11   | 0      / 否   | 类别号 | ✔    |
+| class_id   | int     | 11   | 0      |否   | 类别号 | ✔    |
 | class_name | varchar | 15   | 0      | 否   | 类别名 |      |
 
 4.  借阅信息表 lend_list
