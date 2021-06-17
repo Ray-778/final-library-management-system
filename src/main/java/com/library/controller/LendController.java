@@ -1,6 +1,6 @@
 package com.library.controller;
 
-import com.library.bean.ReaderCard;
+import com.library.pojo.ReaderCard;
 import com.library.service.BookService;
 import com.library.service.LendService;
 import org.springframework.beans.factory.annotation.Autowired;

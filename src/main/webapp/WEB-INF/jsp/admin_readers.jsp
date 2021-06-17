@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+
     <title>全部读者</title>
     <link rel="shortcut icon"  href="img/library.ico" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -17,7 +18,10 @@
 <body background="img/admin_readers.jpg" style=" background-repeat:no-repeat ;
 background-size:100% 100%;
 background-attachment: fixed;">
+
 <div id="header"></div>
+
+
 <c:if test="${!empty info}">
     <script>alert("${info}");window.location.href="allreaders.html"</script>
 </c:if>

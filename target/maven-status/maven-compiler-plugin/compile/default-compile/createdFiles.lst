@@ -1,5 +1,5 @@
-com\library\bean\Admin.class
-com\library\bean\Book.class
-com\library\bean\Lend.class
-com\library\bean\ReaderInfo.class
-com\library\bean\ReaderCard.class
+com\library\pojo\ReaderCard.class
+com\library\pojo\Lend.class
+com\library\pojo\Book.class
+com\library\pojo\Admin.class
+com\library\pojo\ReaderInfo.class

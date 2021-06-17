@@ -1,7 +1,7 @@
 package com.library.controller;
 
-import com.library.bean.ReaderCard;
-import com.library.bean.ReaderInfo;
+import com.library.pojo.ReaderCard;
+import com.library.pojo.ReaderInfo;
 import com.library.service.LoginService;
 import com.library.service.ReaderCardService;
 import com.library.service.ReaderInfoService;
@@ -45,6 +45,7 @@ public class ReaderController {
         readerInfo.setBirth(date);
         return readerInfo;
     }
+
 
     @RequestMapping("index.html")
     public ModelAndView index(){

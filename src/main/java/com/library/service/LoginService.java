@@ -1,6 +1,6 @@
 package com.library.service;
 
-import com.library.bean.ReaderCard;
+import com.library.pojo.ReaderCard;
 import com.library.dao.AdminDao;
 import com.library.dao.ReaderCardDao;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.library.dao;
 
-import com.library.bean.ReaderCard;
-import com.library.bean.ReaderInfo;
+import com.library.pojo.ReaderCard;
+import com.library.pojo.ReaderInfo;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
