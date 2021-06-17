@@ -2,7 +2,7 @@
 <meta http-equiv="Content-Type"content="text/html;charset=utf-8"/>
 <html>
 <head>
-    <title>添加读者</title>
+    <title>读者注册</title>
 <<<<<<< HEAD
     <link rel="shortcut icon"  href="img/library.ico" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -17,7 +17,7 @@ background-attachment: fixed;">
 <div class="col-xs-6 col-md-offset-3" style="padding-top: 100px;position: relative">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">添加读者</h3>
+            <h3 class="panel-title">读者注册</h3>
         </div>
         <div class="panel-body">
             <form action="reader_add_do1.html" method="post" id="readeredit" >

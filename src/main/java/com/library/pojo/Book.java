@@ -15,7 +15,7 @@ public class Book implements Serializable {
     private String language;
     private BigDecimal price;
     private Date pub_date;
-    private int class_id;
+    private String class_name;
     private int number;
 
     public long getBookId() {
@@ -90,12 +90,12 @@ public class Book implements Serializable {
         this.pub_date = pub_date;
     }
 
-    public int getClassId() {
-        return class_id;
+    public String getClass_name() {
+        return class_name;
     }
 
-    public void setClassId(int class_id) {
-        this.class_id = class_id;
+    public void setClass_name(String class_name) {
+        this.class_name = class_name;
     }
 
     public int getNumber() {

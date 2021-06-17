@@ -59,8 +59,8 @@ background-attachment: fixed;">
                     <input type="date" class="form-control" name="pubstr" id="pubstr" value="${detail.pubdate}">
                 </div>
                 <div class="input-group">
-                    <span  class="input-group-addon">分类号</span>
-                    <input type="text" class="form-control" name="classId" id="classId" value="${detail.classId}">
+                    <span  class="input-group-addon">分类名</span>
+                    <input type="text" class="form-control" name="class_name" id="class_name" value="${detail.class_name}">
                 </div>
                 <div class="input-group">
                     <span  class="input-group-addon">数量</span>
@@ -69,7 +69,7 @@ background-attachment: fixed;">
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
                 <script>
                     $("#addbook").submit(function () {
-                        if($("#name").val()==''||$("#author").val()==''||$("#publish").val()==''||$("#isbn").val()==''||$("#introduction").val()==''||$("#language").val()==''||$("#price").val()==''||$("#pubstr").val()==''||$("#classId").val()==''||$("#number").val()==''){
+                        if($("#name").val()==''||$("#author").val()==''||$("#publish").val()==''||$("#isbn").val()==''||$("#introduction").val()==''||$("#language").val()==''||$("#price").val()==''||$("#pubstr").val()==''||$("#class_name").val()==''||$("#number").val()==''){
                             alert("请填入完整图书信息！");
                             return false;
                         }
