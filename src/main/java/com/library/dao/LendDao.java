@@ -1,6 +1,6 @@
 package com.library.dao;
 
-import com.library.pojo.Lend;
+import com.library.bean.Lend;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 

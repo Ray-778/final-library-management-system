@@ -1,6 +1,6 @@
 package com.library.dao;
 
-import com.library.pojo.ReaderInfo;
+import com.library.bean.ReaderInfo;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 

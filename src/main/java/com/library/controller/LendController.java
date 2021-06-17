@@ -1,6 +1,6 @@
 package com.library.controller;
 
-import com.library.pojo.ReaderCard;
+import com.library.bean.ReaderCard;
 import com.library.service.BookService;
 import com.library.service.LendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +19,7 @@ public class LendController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/deletebook.html")
-    public String deleteBook(HttpServletRequest request, RedirectAttributes redirectAttributes) {
-        long bookId = Long.parseLong(request.getParameter("bookId"));
-        if (bookService.deleteBook(bookId)) {
-            redirectAttributes.addFlashAttribute("succ", "图书删除成功！");
-        } else {
-            redirectAttributes.addFlashAttribute("error", "图书删除失败！");
-        }
-        return "redirect:/admin_books.html";
-    }
+
 
     @RequestMapping("/lendlist.html")
     public ModelAndView lendList(HttpServletRequest request) {

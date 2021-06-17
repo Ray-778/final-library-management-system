@@ -1,7 +1,7 @@
 package com.library.service;
 
 import com.library.dao.ReaderCardDao;
-import com.library.pojo.ReaderInfo;
+import com.library.bean.ReaderInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

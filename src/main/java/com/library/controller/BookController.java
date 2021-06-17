@@ -1,8 +1,8 @@
 package com.library.controller;
 
-import com.library.pojo.Book;
-import com.library.pojo.Lend;
-import com.library.pojo.ReaderCard;
+import com.library.bean.Book;
+import com.library.bean.Lend;
+import com.library.bean.ReaderCard;
 import com.library.service.BookService;
 import com.library.service.LendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +45,7 @@ public class BookController {
         }
         return "redirect:/admin_books.html";
     }
+
     @RequestMapping("/querybook.html")
     public ModelAndView queryBookDo(String searchWord) {
         if (bookService.matchBook(searchWord)) {
