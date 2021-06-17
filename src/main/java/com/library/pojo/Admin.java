@@ -1,4 +1,4 @@
-package com.library.bean;
+package com.library.pojo;
 
 public class Admin {
 

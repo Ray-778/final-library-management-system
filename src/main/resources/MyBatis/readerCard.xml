@@ -5,7 +5,7 @@
         select count(*) from reader_card where
         reader_id = #{reader_id} and password = #{password}
     </select>
-    <select id="findReaderByReaderId" resultType="com.library.bean.ReaderCard" parameterType="long">
+    <select id="findReaderByReaderId" resultType="com.library.pojo.ReaderCard" parameterType="long">
         select * from reader_card where reader_id = #{reader_id}
     </select>
     <update id="resetPassword">
