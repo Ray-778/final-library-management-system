@@ -2,7 +2,7 @@ Library Management System
 使用Java开发的图书管理系统
 
 #### 部署说明
-基础环境：JDK8，Tomcat8，MySQL5.7，maven的jetty
+基础环境：JDK8，Tomcat 9.0.45，MySQL 8.0.21，maven的jetty
 
 
 #### 介绍
@@ -13,52 +13,59 @@ Library Management System
 
 管理员
 1.  登录
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135659.png)
 
-2.  注册
+2.  管理员首页
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135714.png)
 
 3.  显示全部图书
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135718.png)
 
 4.  对书籍操作
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135727.png)
 
 5.  图书信息的添加
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135739.png)
 
-6.  显示全部读者
+7.  显示全部读者
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135744.png)
 
-7.  编辑读者信息
+8.  编辑读者信息
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135749.png)
 
-8.  添加读者
+9.  添加读者
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135710.png)
 
-9.  借还日志
+10.  借还日志
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135744.png)
 
-10.  图书信息的添加
+11.  图书信息的添加
+![Image text](
 
 读者：
 1. 读者首页
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135752.png)
 
 2.  首页和注册页面与管理员一样
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135659.png)
 
-3.  查询后显示图书的信息
+3.  显示图书的信息
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135807.png)
 
-4.  对书籍操作
+4.  查询后显示图书信息
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135810.png)
 
-5.  图书信息的添加
+5.  读者信息
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135813.png)
 
-6.  显示全部读者
+6.  读者信息修改
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135817.png)
 
-7.  编辑读者信息
+7.  读者借还信息
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135821.png)
 
-8.  添加读者
-
-9.  借还日志
-
-10.  图书信息的添加
-
-
-
-
-
-
-
+8.  读者的密码修改
+![Image text](https://gitee.com/jk-14/library-management-system/raw/master/view/QQ%E5%9B%BE%E7%89%8720210617135825.png)
 
 
 #### 参与贡献
