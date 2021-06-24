@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type"content="text/html;charset=utf-8"/>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 
@@ -50,7 +51,7 @@ background-attachment: fixed;">
 <div style="padding: 70px 550px 10px">
     <form   method="post" action="querybook2.html" class="form-inline"  id="searchform">
         <div class="input-group">
-            <input type="text" placeholder="输入读者姓名" class="form-control" id="search" name="searchWord" class="form-control">
+            <input type="text" placeholder="输入读者姓名或地址或电话" class="form-control" id="search" name="searchWord" class="form-control">
             <span class="input-group-btn">
                             <input type="submit" value="搜索" class="btn btn-default">
             </span>
@@ -95,7 +96,7 @@ background-attachment: fixed;">
                     <td><c:out value="${reader.readerId}"></c:out></td>
                     <td><c:out value="${reader.name}"></c:out></td>
                     <td><c:out value="${reader.sex}"></c:out></td>
-                    <td><c:out value="${reader.birth}"></c:out></td>
+                    <td><fmt:formatDate value="${reader.birth}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
                     <td><c:out value="${reader.address}"></c:out></td>
                     <td><c:out value="${reader.phone}"></c:out></td>
                     <td><a href="reader_edit.html?readerId=<c:out value="${reader.readerId}"></c:out>"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>

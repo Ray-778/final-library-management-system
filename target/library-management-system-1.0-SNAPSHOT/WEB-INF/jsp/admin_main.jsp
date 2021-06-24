@@ -19,16 +19,5 @@ background-attachment: fixed;">
 
 <div id="header"></div>
 
-
-<c:if test="${!empty login}">
-    <script>
-        $(function () {
-            $("#myModal").modal({
-                show: true
-            })
-        })
-    </script>
-</c:if>
-
 </body>
 </html>

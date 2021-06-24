@@ -12,7 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 public class LendController {
@@ -75,6 +78,38 @@ public class LendController {
         ModelAndView modelAndView = new ModelAndView("reader_lend_list");
         modelAndView.addObject("list", lendService.myLendList(readerCard.getReaderId()));
         return modelAndView;
+    }
+
+    @RequestMapping("/reader_djs.html")
+    public ModelAndView DJS(HttpServletRequest request) {
+        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        ModelAndView modelAndView = new ModelAndView("reader_main");
+        lendService.lendDjs(readerCard.getReaderId());
+        modelAndView.addObject("list", lendService.myLendList(readerCard.getReaderId()));
+//        List<Lend>list=lendService.myLendList(readerCard.getReaderId());
+//        for (Lend lend:list) {
+//            if (lend.getBackDate()==null){
+//                Date date=new Date();
+//                lend.setDjs(getDaySub(date,lend.getDue_date()));
+//                request.setAttribute("djs",lend.getDjs());
+//            }
+//        }
+        return modelAndView;
+    }
+    public static long getDaySub(Date beginDate, Date endDate) {
+
+        long day = 0;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String beginDateStr=format.format(beginDate);
+        String endDateStr=format.format(endDate);
+        try {
+            beginDate = format.parse(beginDateStr);
+            endDate = format.parse(endDateStr);
+            day = (endDate.getTime()-beginDate.getTime())/(24*60*60*1000);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return day;
     }
 
     @RequestMapping("/deletelend.html")

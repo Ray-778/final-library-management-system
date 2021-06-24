@@ -53,7 +53,7 @@ background-attachment: fixed;">
             <input type="password" class="form-control" id="passwd" placeholder="请输入密码">
         </div>
         <label>验证码</label><br/>
-        <input type="text"   id="yzm"">
+        <input type="text"   id="yzm">
        <img id="image" border="0"  οnclick="refresh()" src="/image.html" title="点击更换图片">
         <a href="/index.html">点击刷新</a>
         <div class="checkbox text-left">

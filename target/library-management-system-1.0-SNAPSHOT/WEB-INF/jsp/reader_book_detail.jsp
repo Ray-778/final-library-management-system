@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>《 ${detail.name}》</title>
@@ -54,7 +55,7 @@ background-attachment: fixed;">
                 </tr>
                 <tr>
                     <th>出版日期</th>
-                    <td>${detail.pubdate}</td>
+                    <td><fmt:formatDate value="${detail.pubdate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
                 </tr>
                 <tr>
                     <th>分类名</th>
@@ -62,7 +63,7 @@ background-attachment: fixed;">
                 </tr>
                 <tr>
                     <th>状态</th>
-                    <c:if test="${detail.number>1}">
+                    <c:if test="${detail.number>=1}">
                         <td>在馆</td>
                     </c:if>
                     <c:if test="${detail.number==0}">

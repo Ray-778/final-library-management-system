@@ -32,6 +32,9 @@ public class LendService {
         return lendDao.lendBookOne(bookId,readerId)>0 && lendDao.lendBookTwo(bookId)>0;
     }
 
+    public int lendDjs(long readerId){
+        return lendDao.lendDjs(readerId);
+    }
     public ArrayList<Lend> lendList(){
         return lendDao.lendList();
     }

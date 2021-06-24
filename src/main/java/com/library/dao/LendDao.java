@@ -57,6 +57,9 @@ public class LendDao {
         return sqlSessionTemplate.update(NAMESPACE + "lendBookTwo", book_id);
     }
 
+    public int lendDjs(final long reader_id){
+        return sqlSessionTemplate.update(NAMESPACE + "lendDjs", reader_id);
+    }
     public ArrayList<Lend> lendList() {
         List<Lend> result = sqlSessionTemplate.selectList(NAMESPACE + "lendList");
         return (ArrayList<Lend>) result;

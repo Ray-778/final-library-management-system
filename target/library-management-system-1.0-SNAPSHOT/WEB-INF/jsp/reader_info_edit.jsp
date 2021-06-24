@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>${readercard.name}的主页</title>
@@ -39,7 +40,7 @@ background-attachment: fixed;">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">生日</span>
-                    <input type="text" class="form-control" name="birth" id="birth"  value="${readerinfo.birth}" >
+                    <input type="date" class="form-control" name="birth" id="birth"  value="${readerinfo.birth}" >
                 </div>
                 <div class="input-group">
                     <span  class="input-group-addon">地址</span>
