@@ -31,8 +31,10 @@
     </select>
     <select id="queryReader" resultType="com.library.pojo.ReaderInfo" parameterType="String">
         select * from reader_info where name like #{search}
+        or address like #{search}or phone like #{search}
     </select>
     <select id="matchReader" resultType="int" parameterType="String">
         select count(*) from reader_info where name like #{search}
+        or address like #{search}or phone like #{search}
     </select>
 </mapper>

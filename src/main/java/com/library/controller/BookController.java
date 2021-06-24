@@ -44,7 +44,25 @@ public class BookController {
             redirectAttributes.addFlashAttribute("error", "图书删除失败！");
         }
         return "redirect:/admin_books.html";
+}
+
+
+    @RequestMapping("/query.html")
+    public ModelAndView queryDo(String searchType, String searchWord) {
+        if ("tsmc".equals(searchType)) {
+            return queryBookDo1(searchWord);
+        }else if ("tszz".equals(searchType)){
+            return queryBookDo3(searchWord);
+        }else if ("tsisbn".equals(searchType)){
+            return queryBookDo4(searchWord);
+        }else if ("tslx".equals(searchType)){
+            return queryBookDo5(searchWord);
+        }
+        else {
+            return queryBookDo(searchWord);
+        }
     }
+
 
     @RequestMapping("/querybook.html")
     public ModelAndView queryBookDo(String searchWord) {
@@ -58,6 +76,75 @@ public class BookController {
         }
     }
 
+    @RequestMapping("/querybook1.html")
+    public ModelAndView queryBookDo1(String searchWord) {
+        if (bookService.matchBook(searchWord)) {
+            ArrayList<Book> books = bookService.queryBook1(searchWord);
+            ModelAndView modelAndView = new ModelAndView("admin_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("admin_books", "error", "没有匹配的图书");
+        }
+    }
+
+
+
+
+    @RequestMapping("/querybook3.html")
+    public ModelAndView queryBookDo3(String searchWord) {
+        if (bookService.matchBook(searchWord)) {
+            ArrayList<Book> books = bookService.queryBook3(searchWord);
+            ModelAndView modelAndView = new ModelAndView("admin_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("admin_books", "error", "没有匹配的图书");
+        }
+    }
+
+
+    @RequestMapping("/querybook4.html")
+    public ModelAndView queryBookDo4(String searchWord) {
+        if (bookService.matchBook(searchWord)) {
+            ArrayList<Book> books = bookService.queryBook4(searchWord);
+            ModelAndView modelAndView = new ModelAndView("admin_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("admin_books", "error", "没有匹配的图书");
+        }
+    }
+
+    @RequestMapping("/querybook5.html")
+    public ModelAndView queryBookDo5(String searchWord) {
+        if (bookService.matchBook(searchWord)) {
+            ArrayList<Book> books = bookService.queryBook5(searchWord);
+            ModelAndView modelAndView = new ModelAndView("admin_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("admin_books", "error", "没有匹配的图书");
+        }
+    }
+
+
+
+    @RequestMapping("/readerquery.html")
+    public ModelAndView reader_queryDo(String searchType, String searchWord) {
+        if ("tsmc".equals(searchType)) {
+            return readerQueryBookDo1(searchWord);
+        }else if ("tszz".equals(searchType)){
+            return readerQueryBookDo2(searchWord);
+        }else if ("tsisbn".equals(searchType)){
+            return readerQueryBookDo3(searchWord);
+        }else if ("tslx".equals(searchType)){
+            return readerQueryBookDo4(searchWord);
+        }
+        else {
+            return readerQueryBookDo(searchWord);
+        }
+    }
 
     @RequestMapping("/reader_querybook_do.html")
     public ModelAndView readerQueryBookDo(String searchWord) {
@@ -70,6 +157,58 @@ public class BookController {
             return new ModelAndView("reader_books", "error", "没有匹配的图书");
         }
     }
+
+
+    @RequestMapping("/reader_querybook_do1.html")
+    public ModelAndView readerQueryBookDo1(String searchWord) {
+        if (bookService.matchBook(searchWord)) {
+            ArrayList<Book> books = bookService.queryBook1(searchWord);
+            ModelAndView modelAndView = new ModelAndView("reader_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("reader_books", "error", "没有匹配的图书");
+        }
+    }
+
+    @RequestMapping("/reader_querybook_do2.html")
+    public ModelAndView readerQueryBookDo2(String searchWord) {
+        if (bookService.matchBook(searchWord)) {
+            ArrayList<Book> books = bookService.queryBook3(searchWord);
+            ModelAndView modelAndView = new ModelAndView("reader_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("reader_books", "error", "没有匹配的图书");
+        }
+    }
+
+    @RequestMapping("/reader_querybook_do3.html")
+    public ModelAndView readerQueryBookDo3(String searchWord) {
+        if (bookService.matchBook(searchWord)) {
+            ArrayList<Book> books = bookService.queryBook4(searchWord);
+            ModelAndView modelAndView = new ModelAndView("reader_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("reader_books", "error", "没有匹配的图书");
+        }
+    }
+
+
+    @RequestMapping("/reader_querybook_do4.html")
+    public ModelAndView readerQueryBookDo4(String searchWord) {
+        if (bookService.matchBook(searchWord)) {
+            ArrayList<Book> books = bookService.queryBook5(searchWord);
+            ModelAndView modelAndView = new ModelAndView("reader_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("reader_books", "error", "没有匹配的图书");
+        }
+    }
+
+
 
     @RequestMapping("/admin_books.html")
     public ModelAndView adminBooks() {
@@ -156,6 +295,7 @@ public class BookController {
             }
         }
         ModelAndView modelAndView = new ModelAndView("reader_books");
+        //分部显示
         modelAndView.addObject("books", books);
         modelAndView.addObject("myLendList", myLendList);
         return modelAndView;

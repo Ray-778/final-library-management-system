@@ -21,26 +21,67 @@ background-attachment: fixed;">
 
 <div id="header"></div>
 
-<div style="padding: 20px 550px 10px">
-    <form method="post" action="reader_querybook_do.html" class="form-inline" id="searchform">
+
+
+<%--<div style="padding: 20px 550px 10px">--%>
+<%--    <form method="post" action="reader_querybook_do.html" class="form-inline" id="searchform">--%>
+<%--        <div class="input-group">--%>
+<%--            <input type="text" placeholder="输入图书名" class="form-control" id="search" name="searchWord"--%>
+<%--                   class="form-control">--%>
+<%--            <span class="input-group-btn">--%>
+<%--                <input type="submit" value="搜索" class="btn btn-default">--%>
+<%--            </span>--%>
+<%--        </div>--%>
+<%--    </form>--%>
+<%--    <script>--%>
+<%--        $("#searchform").submit(function () {--%>
+<%--            var val = $("#search").val();--%>
+<%--            if (val == '') {--%>
+<%--                alert("请输入关键字");--%>
+<%--                return false;--%>
+<%--            }--%>
+<%--        })--%>
+<%--    </script>--%>
+<%--</div>--%>
+
+
+<div style="padding: 70px 550px 10px">
+    <form   method="post" action="readerquery.html" class="form-inline"  id="searchform">
         <div class="input-group">
-            <input type="text" placeholder="输入图书名" class="form-control" id="search" name="searchWord"
-                   class="form-control">
-            <span class="input-group-btn">
-                <input type="submit" value="搜索" class="btn btn-default">
+            <select name="searchType" id="searchType">
+                <option value ="all">匹配所有</option>
+                <option value ="tsmc">图书名称</option>
+                <option value ="tszz">图书作者</option>
+                <option value ="tsisbn">图书ISBN</option>
+                <option value ="tslx">图书类型</option>
+            </select>
+            <input type="text" placeholder="输入..." class="form-control" id="search" name="searchWord" class="form-control"/>
+            <span class="input- group-btn">
+                            <input type="submit" value="搜索" class="btn btn-default">
             </span>
         </div>
+        <script>
+            $("#searchfor").submit(function () {
+                var val=$("#searc").val();
+                if(val==''){
+                    alert("请输入关键字");
+                    return false;
+                }
+            })
+        </script>
     </form>
-    <script>
-        $("#searchform").submit(function () {
-            var val = $("#search").val();
-            if (val == '') {
-                alert("请输入关键字");
-                return false;
-            }
-        })
-    </script>
 </div>
+
+
+
+
+
+
+
+
+
+
+
 <div style="position: relative;top: 10%">
     <c:if test="${!empty succ}">
         <div class="alert alert-success alert-dismissable">
@@ -94,6 +135,7 @@ background-attachment: fixed;">
                     <c:set var="flag" value="false"/>
                     <c:forEach var="lend" items="${myLendList}">
                         <c:if test="${lend eq book.bookId}">
+<%--                            判断id相等否--%>
                             <c:set var="flag" value="true"/>
                         </c:if>
                     </c:forEach>

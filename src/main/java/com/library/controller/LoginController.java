@@ -78,12 +78,12 @@ public class LoginController {
         }
         return res;
     }
-
+//管理主页
     @RequestMapping("/admin_main.html")
     public ModelAndView toAdminMain(HttpServletResponse response) {
         return new ModelAndView("admin_main");
     }
-
+//读者主页
     @RequestMapping("/reader_main.html")
     public ModelAndView toReaderMain(HttpServletResponse response) {
         return new ModelAndView("reader_main");

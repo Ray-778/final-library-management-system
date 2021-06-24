@@ -28,6 +28,11 @@ public class LendDao {
         List<Lend> result = sqlSessionTemplate.selectList(NAMESPACE + "queryBook", search);
         return (ArrayList<Lend>) result;
     }
+    public ArrayList<Lend> queryBook1(final String searchWord) {
+        String search = searchWord;
+        List<Lend> result = sqlSessionTemplate.selectList(NAMESPACE + "queryBook1", search);
+        return (ArrayList<Lend>) result;
+    }
 
     public int returnBookOne(final long book_id, long reader_id) {
         Map<String, Object> map = new HashMap<>();
@@ -42,6 +47,7 @@ public class LendDao {
 
     public int lendBookOne(final long book_id, final long reader_id) {
         Map<String, Object> map = new HashMap<>();
+        //获取 Map 集合的所有键名 名  值对象
         map.put("book_id", book_id);
         map.put("reader_id", reader_id);
         return sqlSessionTemplate.insert(NAMESPACE + "lendBookOne", map);

@@ -15,7 +15,19 @@ public class BookService {
     public ArrayList<Book> queryBook(String searchWord) {
         return bookDao.queryBook(searchWord);
     }
+    public ArrayList<Book> queryBook1(String searchWord) {
+        return bookDao.queryBook1(searchWord);
+    }
 
+    public ArrayList<Book> queryBook3(String searchWord) {
+        return bookDao.queryBook3(searchWord);
+    }
+    public ArrayList<Book> queryBook4(String searchWord) {
+        return bookDao.queryBook4(searchWord);
+    }
+    public ArrayList<Book> queryBook5(String searchWord) {
+        return bookDao.queryBook5(searchWord);
+    }
     public ArrayList<Book> getAllBooks() {
         return bookDao.getAllBooks();
     }

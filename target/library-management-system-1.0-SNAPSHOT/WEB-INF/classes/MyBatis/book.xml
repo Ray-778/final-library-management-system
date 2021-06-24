@@ -22,6 +22,20 @@
         or ISBN like #{search} or publish like #{search}
         or class_name like #{search}
     </select>
+    <select id="queryBook1" resultType="com.library.pojo.Book" parameterType="String">
+        select * from book_info where name like #{search}
+    </select>
+    <select id="queryBook3" resultType="com.library.pojo.Book" parameterType="String">
+        select * from book_info where  author like #{search}
+    </select>
+
+    <select id="queryBook4" resultType="com.library.pojo.Book" parameterType="String">
+        select * from book_info where  ISBN like #{search}
+    </select>
+    <select id="queryBook5" resultType="com.library.pojo.Book" parameterType="String">
+        select * from book_info where class_name like #{search}
+    </select>
+
     <select id="matchBook" resultType="int" parameterType="String">
         select count(*) from book_info where name like #{search}
         or author like #{search} or introduction like #{search}

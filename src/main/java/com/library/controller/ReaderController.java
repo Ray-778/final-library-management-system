@@ -50,8 +50,6 @@ public class ReaderController {
     public ModelAndView queryBookDo(String searchWord) {
         if (readerInfoService.matchReader(searchWord)) {
             ArrayList<ReaderInfo> readers = readerInfoService.queryReader(searchWord);
-
-
             ModelAndView modelAndView = new ModelAndView("admin_readers");
             modelAndView.addObject("readers", readers);
             return modelAndView;

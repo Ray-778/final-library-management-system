@@ -16,9 +16,14 @@ public class LendService {
     public ArrayList<Lend> queryBook(String searchWord) {
         return lendDao.queryBook(searchWord);
     }
+    public ArrayList<Lend> queryBook1(String searchWord) {
+        return lendDao.queryBook1(searchWord);
+    }
+
     public boolean matchBook(String searchWord) {
         return lendDao.matchBook(searchWord) > 0;
     }
+
     public boolean returnBook(long bookId, long readerId){
         return lendDao.returnBookOne(bookId, readerId)>0 && lendDao.returnBookTwo(bookId)>0;
     }

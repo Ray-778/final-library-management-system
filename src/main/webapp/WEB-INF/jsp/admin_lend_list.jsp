@@ -18,9 +18,13 @@ background-size:100% 100%;
 background-attachment: fixed;">
 <div id="header"></div>
 <div style="padding: 70px 550px 10px">
-    <form   method="post" action="/querylend.html" class="form-inline"  id="searchform">
+    <form   method="post" action="/lendquery.html" class="form-inline"  id="searchform">
         <div class="input-group">
-            <input type="text" placeholder="输入读者证号" class="form-control" id="search" name="searchWord" class="form-control">
+            <select name="searchType" id="searchType">
+                <option value ="tsh">读者证号</option>
+                <option value ="dzzh">图书号</option>
+            </select>
+            <input type="text" placeholder="输入读者证号" class="form-control" id="search" name="searchWord" class="form-control"/>
             <span class="input-group-btn">
                             <input type="submit" value="搜索" class="btn btn-default">
             </span>

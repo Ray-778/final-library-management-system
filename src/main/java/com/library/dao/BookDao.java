@@ -26,6 +26,32 @@ public class BookDao {
         return (ArrayList<Book>) result;
     }
 
+    public ArrayList<Book> queryBook1(final String searchWord) {
+        String search = "%" + searchWord + "%";
+        List<Book> result = sqlSessionTemplate.selectList(NAMESPACE + "queryBook1", search);
+        return (ArrayList<Book>) result;
+    }
+    public ArrayList<Book> queryBook3(final String searchWord) {
+        String search = "%" + searchWord + "%";
+        List<Book> result = sqlSessionTemplate.selectList(NAMESPACE + "queryBook3", search);
+        return (ArrayList<Book>) result;
+    }
+
+
+    public ArrayList<Book> queryBook4(final String searchWord) {
+        String search = "%" + searchWord + "%";
+        List<Book> result = sqlSessionTemplate.selectList(NAMESPACE + "queryBook4", search);
+        return (ArrayList<Book>) result;
+    }
+
+    public ArrayList<Book> queryBook5(final String searchWord) {
+        String search = "%" + searchWord + "%";
+        List<Book> result = sqlSessionTemplate.selectList(NAMESPACE + "queryBook5", search);
+        return (ArrayList<Book>) result;
+    }
+
+
+
     public ArrayList<Book> getAllBooks() {
         List<Book> result = sqlSessionTemplate.selectList(NAMESPACE + "getAllBooks");
         return (ArrayList<Book>) result;

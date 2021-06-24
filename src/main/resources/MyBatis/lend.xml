@@ -25,9 +25,13 @@
         delete from lend_list where ser_num = #{ser_num}
     </delete>
     <select id="queryBook" resultType="com.library.pojo.Lend" parameterType="String">
-        select * from lend_list where reader_id = #{reader_id}
+        select * from lend_list where reader_id = #{search}
+    </select>
+
+    <select id="queryBook1" resultType="com.library.pojo.Lend" parameterType="String">
+        select * from lend_list where book_id = #{search}
     </select>
     <select id="matchBook" resultType="int" parameterType="String">
-        select count(*) from lend_list where reader_id = #{reader_id}
+        select count(*) from lend_list where reader_id = #{search} or book_id = #{search}
     </select>
 </mapper>
