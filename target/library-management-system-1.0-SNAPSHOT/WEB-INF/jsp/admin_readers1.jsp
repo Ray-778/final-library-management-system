@@ -15,7 +15,7 @@ background-size:100% 100%;
 background-attachment: fixed;">
 <div id="header"></div>
 <c:if test="${!empty info}">
-    <script>alert("${info}");window.location.href="allreaders.html"</script>
+    <script>alert("${info}");window.location.href="admin_allreaders.html"</script>
 </c:if>
 
 <div style="position: relative;top: 15%">

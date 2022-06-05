@@ -19,27 +19,167 @@ background-attachment: fixed;">
 
 <div id="header"></div>
 <div style="padding: 70px 550px 10px">
-    <form   method="post" action="querybook.html" class="form-inline"  id="searchform">
+    <form   method="post" action="admin_query.html" class="form-inline"  id="searchform">
         <div class="input-group">
-            <input type="text" placeholder="输入图书名" class="form-control" id="search" name="searchWord" class="form-control">
-            <span class="input-group-btn">
+            <select name="searchType" id="searchType">
+                <option value ="all">匹配所有</option>
+                <option value ="tsmc">图书名称</option>
+                <option value ="tszz">图书作者</option>
+                <option value ="tsisbn">图书ISBN</option>
+                <option value ="tslx">图书类型</option>
+            </select>
+            <input type="text" placeholder="输入..." class="form-control" id="search" name="searchWord" class="form-control"/>
+            <span class="input- group-btn">
                             <input type="submit" value="搜索" class="btn btn-default">
             </span>
+
+
         </div>
+        <script>
+            $("#searchfor").submit(function () {
+                var val=$("#searc").val();
+                if(val==''){
+                    alert("请输入关键字");
+                    return false;
+                }
+            })
+        </script>
     </form>
-
-    <script>
-        $("#searchform").submit(function () {
-            var val=$("#search").val();
-            if(val==''){
-                alert("请输入关键字");
-                return false;
-            }
-        })
-    </script>
 </div>
-<div style="position: relative;top: 10%">
+</div>
 
+
+
+
+
+
+
+
+
+
+
+
+<%--<div style="padding: 70px 550px 10px">--%>
+<%--    <form   method="post" action="querybook.html" class="form-inline"  id="searchform">--%>
+
+<%--        <div class="input-group">--%>
+
+<%--            <input type="text" placeholder="输入所有题名" class="form-control" id="search" name="searchWord" class="form-control"/>--%>
+<%--            <span class="input-group-btn">--%>
+<%--                            <input type="submit" value="搜索" class="btn btn-default">--%>
+<%--            </span>--%>
+<%--        </div>--%>
+<%--    </form>--%>
+<%--</div>--%>
+
+
+
+<%--    <form   method="post" action="querybook1.html" class="form-inline"  id="searchform1">--%>
+
+<%--        <div class="input-group">--%>
+<%--            <input type="text" placeholder="输入图书名" class="form-control" id="search1" name="searchWord" class="form-control"/>--%>
+<%--            <span class="input-group-btn">--%>
+<%--                            <input type="submit" value="搜索" class="btn btn-default">--%>
+<%--            </span>--%>
+<%--        </div>--%>
+<%--    </form>--%>
+
+
+<%--    <form   method="post" action="querybook3.html" class="form-inline"  id="searchform3">--%>
+
+<%--        <div class="input-group">--%>
+<%--            <input type="text" placeholder="输入图作者" class="form-control" id="search3" name="searchWord" class="form-control">--%>
+<%--            <span class="input-group-btn">--%>
+<%--                            <input type="submit" value="搜索" class="btn btn-default">--%>
+<%--            </span>--%>
+<%--        </div>--%>
+<%--    </form>--%>
+
+<%--    <form   method="post" action="querybook4.html" class="form-inline"  id="searchform4">--%>
+
+<%--        <div class="input-group">--%>
+<%--            <input type="text" placeholder="输入图书ISBN" class="form-control" id="search4" name="searchWord" class="form-control">--%>
+<%--            <span class="input-group-btn">--%>
+<%--                            <input type="submit" value="搜索" class="btn btn-default">--%>
+<%--            </span>--%>
+<%--        </div>--%>
+<%--    </form>--%>
+
+
+<%--    <form   method="post" action="querybook5.html" class="form-inline"  id="searchform5">--%>
+<%--        <div class="input-group">--%>
+<%--            <input type="text" placeholder="输入图书类型" class="form-control" id="search5" name="searchWord" class="form-control">--%>
+<%--            <span class="input-group-btn">--%>
+<%--                            <input type="submit" value="搜索" class="btn btn-default">--%>
+<%--            </span>--%>
+<%--        </div>--%>
+<%--    </form>--%>
+
+<%--</div>--%>
+
+
+
+
+
+
+
+<%--    <script>--%>
+<%--        $("#searchform").submit(function () {--%>
+<%--            var val=$("#search").val();--%>
+<%--            if(val==''){--%>
+<%--                alert("请输入关键字");--%>
+<%--                return false;--%>
+<%--            }--%>
+<%--        })--%>
+<%--    </script>--%>
+
+
+
+
+
+
+
+
+
+
+
+<%--    <tr valign="top">--%>
+<%--        <td align="right">检索词类型:&nbsp;</td>--%>
+<%--        <td align="left">--%>
+
+<%--            <select name="suchen_type" size="1">--%>
+
+<%--                <option value="1">所有题名</option>--%>
+
+<%--                <option value="2">出版社</option>--%>
+
+<%--                <option value="3">索书号</option>--%>
+
+<%--                <option value="4">作者</option>--%>
+
+<%--            </select>--%>
+
+<%--        </td>--%>
+<%--    </tr>--%>
+
+
+
+
+
+
+<%--    <tr>--%>
+<%--        <td align="right">检索词:&nbsp;</td>--%>
+<%--        <td align="left">--%>
+<%--            <input id="suchen_word" name="suchen_word" type="text" size="18" autocomplete="off" class="input_text" value="">--%>
+<%--            <img id="Loadingimg" src="../img/indicator.gif" style="display:none"><br>--%>
+<%--            <div id="brandTip" style="position:absolute; width:120px;border:1px solid menu;background-Color:#ffffcc;display:none"></div>--%>
+<%--            <span class="input-group-btn">--%>
+<%--                            <input type="submit" value="搜索" class="btn btn-default">--%>
+<%--            </span>--%>
+<%--        </td>--%>
+<%--    </tr>--%>
+
+<div style="position: relative;top: 10%">
 <c:if test="${!empty succ}">
     <div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert"

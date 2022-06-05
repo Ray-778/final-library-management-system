@@ -24,7 +24,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="allreaders.html">全部读者</a></li>
+                        <li><a href="admin_allreaders.html">全部读者</a></li>
                         <li class="divider"></li>
                         <li><a href="reader_add.html">增加读者</a></li>
                     </ul>
@@ -35,7 +35,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="lendlist.html">借还日志</a></li>
+                        <li><a href="admin_lendlist.html">借还日志</a></li>
                     </ul>
                 </li>
                 <li >

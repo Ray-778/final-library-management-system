@@ -35,6 +35,9 @@ public class LendService {
     public int lendDjs(long readerId){
         return lendDao.lendDjs(readerId);
     }
+    public int backBook(long serNum){
+        return lendDao.backBook(serNum);
+    }
     public ArrayList<Lend> lendList(){
         return lendDao.lendList();
     }

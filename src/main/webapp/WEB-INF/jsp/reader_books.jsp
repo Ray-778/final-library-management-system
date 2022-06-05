@@ -20,7 +20,11 @@ background-size:100% 100%;
 background-attachment: fixed;">
 
 <div id="header"></div>
-
+<script>
+    function tc() {
+        alert("已向图书管理员发送请求，请等待！！！");
+    }
+</script>
 
 
 <%--<div style="padding: 20px 550px 10px">--%>
@@ -71,16 +75,6 @@ background-attachment: fixed;">
         </script>
     </form>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 <div style="position: relative;top: 10%">
     <c:if test="${!empty succ}">
@@ -141,13 +135,13 @@ background-attachment: fixed;">
                     </c:forEach>
                     <c:if test="${flag}">
                         <td><a href="returnbook.html?bookId=<c:out value="${book.bookId}"></c:out>">
-                            <button type="button" class="btn btn-danger btn-xs">归还</button>
+                            <button type="button" class="btn btn-danger btn-xs" onclick="tc()">归还</button>
                         </a></td>
                     </c:if>
                     <c:if test="${not flag}">
                         <c:if test="${book.number>0}">
                             <td><a href="lendbook.html?bookId=<c:out value="${book.bookId}"></c:out>">
-                                <button type="button" class="btn btn-primary btn-xs">借阅</button>
+                                <button type="button" class="btn btn-primary btn-xs" onclick="tc()">借阅</button>
                             </a></td>
                         </c:if>
                         <c:if test="${book.number==0}">

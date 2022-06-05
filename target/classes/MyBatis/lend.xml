@@ -10,7 +10,7 @@
     </update>
     <insert id="lendBookOne">
         insert into lend_list values
-       (null , #{book_id} , #{reader_id} , sysdate() ,DATE_SUB(now(), INTERVAL -30 DAY), null, null )
+        (null,#{book_id} , #{reader_id} , sysdate() ,DATE_SUB(now(), INTERVAL -30 DAY), null, null,null,0)
     </insert>
     <update id="lendBookTwo" parameterType="long">
         update book_info set number = number - 1 where book_id = #{book_id}
@@ -20,6 +20,9 @@
         case when back_date is null then datediff(due_date,sysdate())
              when back_date is not null then 0 end
         where reader_id = #{reader_id}
+    </update>
+    <update id="backBook" parameterType="long">
+        update lend_list set back = 1 where ser_num = #{ser_num}
     </update>
     <select id="lendList" resultType="com.library.pojo.Lend">
         select * from lend_list

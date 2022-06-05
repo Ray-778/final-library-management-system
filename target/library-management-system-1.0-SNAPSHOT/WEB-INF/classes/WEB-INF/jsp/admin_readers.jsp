@@ -24,7 +24,7 @@ background-attachment: fixed;">
 
 
 <c:if test="${!empty info}">
-    <script>alert("${info}");window.location.href="allreaders.html"</script>
+    <script>alert("${info}");window.location.href="admin_allreaders.html"</script>
 </c:if>
 
 <div style="position: relative;top: 15%">
@@ -49,7 +49,7 @@ background-attachment: fixed;">
 </div>
 
 <div style="padding: 70px 550px 10px">
-    <form   method="post" action="querybook2.html" class="form-inline"  id="searchform">
+    <form   method="post" action="admin_queryreader.html" class="form-inline"  id="searchform">
         <div class="input-group">
             <input type="text" placeholder="输入读者姓名或地址或电话" class="form-control" id="search" name="searchWord" class="form-control">
             <span class="input-group-btn">

@@ -15,6 +15,7 @@
     </script>
 
 </head>
+
 <body background="img/Rmain.jpg" style=" background-repeat:no-repeat ;
 background-size:100% 100%;
 background-attachment: fixed;">
@@ -35,14 +36,23 @@ background-attachment: fixed;">
                 <c:if test="${empty alog.backDate}">
                     <td><c:out value="${alog.bookId}"></c:out></td>
                     <td><fmt:formatDate value="${alog.lendDate}" pattern="yyyy-MM-dd"></fmt:formatDate> </td>
-                    <td><c:out value="${alog.djs}"></c:out> </td>
+                    <c:choose>
+                        <c:when test="${alog.djs<=3}">
+                            <td><font color="red"><c:out value="${alog.djs}"></c:out></font></td>
+                        </c:when>
+                        <c:otherwise>
+                            <td><c:out value="${alog.djs}"></c:out></td>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:if test="${alog.back==1}">
+                        <script>alert("您图书即将到期，请尽快归还！！！")</script>
+                    </c:if>
                 </c:if>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
-
 
 </body>
 </html>

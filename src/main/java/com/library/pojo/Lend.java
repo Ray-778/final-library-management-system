@@ -12,6 +12,7 @@ public class Lend implements Serializable {
     private Date due_date;
     private Date back_date;
     private long djs;
+    private int back;
 
     public long getReaderId() {
         return reader_id;
@@ -67,5 +68,13 @@ public class Lend implements Serializable {
 
     public void setDjs(long djs) {
         this.djs = djs;
+    }
+
+    public int getBack() {
+        return back;
+    }
+
+    public void setBack(int back) {
+        this.back = back;
     }
 }

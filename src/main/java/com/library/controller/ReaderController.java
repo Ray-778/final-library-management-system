@@ -46,18 +46,28 @@ public class ReaderController {
         readerInfo.setBirth(date);
         return readerInfo;
     }
-    @RequestMapping("/querybook2.html")
-    public ModelAndView queryBookDo(String searchWord) {
+    @RequestMapping("/admin_queryreader.html")
+    public ModelAndView adminQueryReaderDo(String searchWord) {
         if (readerInfoService.matchReader(searchWord)) {
             ArrayList<ReaderInfo> readers = readerInfoService.queryReader(searchWord);
             ModelAndView modelAndView = new ModelAndView("admin_readers");
             modelAndView.addObject("readers", readers);
             return modelAndView;
         } else {
-            return new ModelAndView("admin_readers", "error", "没有匹配的图书");
+            return new ModelAndView("admin_readers", "error", "没有匹配的读者");
         }
     }
-
+    @RequestMapping("/user_queryreader.html")
+    public ModelAndView userQueryReaderDo(String searchWord) {
+        if (readerInfoService.matchReader(searchWord.trim())) {
+            ArrayList<ReaderInfo> readers = readerInfoService.queryReader(searchWord.trim());
+            ModelAndView modelAndView = new ModelAndView("user_readers");
+            modelAndView.addObject("readers", readers);
+            return modelAndView;
+        } else {
+            return new ModelAndView("user_readers", "error", "没有匹配的读者");
+        }
+    }
 
     @RequestMapping("index.html")
     public ModelAndView index(){
@@ -65,16 +75,24 @@ public class ReaderController {
         return modelAndView;
     }
 
-    @RequestMapping("allreaders.html")
-    public ModelAndView allBooks() {
+    @RequestMapping("admin_allreaders.html")
+    public ModelAndView adminAllReaders() {
         ArrayList<ReaderInfo> readers = readerInfoService.readerInfos();
         ModelAndView modelAndView = new ModelAndView("admin_readers");
         modelAndView.addObject("readers", readers);
         return modelAndView;
     }
+    @RequestMapping("user_allreaders.html")
+    public ModelAndView userAllReaders() {
+        ArrayList<ReaderInfo> readers = readerInfoService.readerInfos();
+        ModelAndView modelAndView = new ModelAndView("user_readers");
+        modelAndView.addObject("readers", readers);
+        return modelAndView;
+    }
 
-    @RequestMapping("allreaders1.html")
-    public ModelAndView allBooks1() {
+
+    @RequestMapping("admin_allreaders1.html")
+    public ModelAndView adminAllReaders1() {
         ArrayList<ReaderInfo> readers = readerInfoService.readerInfos();
         ModelAndView modelAndView = new ModelAndView("admin_readers1");
         modelAndView.addObject("readers", readers);
@@ -89,7 +107,7 @@ public class ReaderController {
         } else {
             redirectAttributes.addFlashAttribute("error", "删除失败！");
         }
-        return "redirect:/allreaders.html";
+        return "redirect:/admin_allreaders.html";
     }
 
     @RequestMapping("/reader_info.html")
@@ -119,7 +137,7 @@ public class ReaderController {
         } else {
             redirectAttributes.addFlashAttribute("error", "读者信息修改失败！");
         }
-        return "redirect:/allreaders.html";
+        return "redirect:/admin_allreaders.html";
     }
 
 
@@ -137,7 +155,7 @@ public class ReaderController {
     public String readerInfoAddDo(String name, String sex, String birth, String address, String phone, String password, RedirectAttributes redirectAttributes) {
 
         readerInfo(name, sex, birth, address, phone, password, redirectAttributes);
-        return "redirect:/allreaders.html";
+        return "redirect:/admin_allreaders.html";
     }
 
     private void readerInfo(String name, String sex, String birth, String address, String phone, String password, RedirectAttributes redirectAttributes) {
@@ -154,7 +172,7 @@ public class ReaderController {
     @RequestMapping("reader_add_do1.html")
     public String readerInfoAddDo1(String name, String sex, String birth, String address, String phone, String password, RedirectAttributes redirectAttributes) {
         readerInfo(name, sex, birth, address, phone, password, redirectAttributes);
-        return "redirect:/allreaders1.html";
+        return "redirect:/admin_allreaders1.html";
     }
 
     @RequestMapping("reader_info_edit.html")

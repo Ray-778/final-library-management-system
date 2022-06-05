@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="library-management-system" />
+        <module name="final-library-management-system" />
       </profile>
     </annotationProcessing>
   </component>

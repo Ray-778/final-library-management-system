@@ -19,7 +19,7 @@ background-size:100% 100%;
 background-attachment: fixed;">
 <div id="header"></div>
 <div style="padding: 70px 550px 10px">
-    <form   method="post" action="/lendquery.html" class="form-inline"  id="searchform">
+    <form   method="post" action="admin_lendquery.html" class="form-inline"  id="searchform">
         <div class="input-group">
             <select name="searchType" id="searchType">
                 <option value ="tsh">读者证号</option>

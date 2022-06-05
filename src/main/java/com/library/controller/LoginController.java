@@ -2,6 +2,7 @@ package com.library.controller;
 
 import com.library.pojo.ReaderCard;
 import com.library.pojo.Admin;
+import com.library.pojo.User;
 import com.library.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,6 +52,7 @@ public class LoginController {
         String yzm = request.getParameter("yzm");
         boolean isReader = loginService.hasMatchReader(id, passwd);
         boolean isAdmin = loginService.hasMatchAdmin(id, passwd);
+        boolean isUser = loginService.hasMatchUser(id,passwd);
         HashMap<String, String> res = new HashMap<>();
         if(yzm.equals(yzm1)) {
             if (isAdmin) {
@@ -67,13 +69,23 @@ public class LoginController {
                 request.getSession().setAttribute("readercard", readerCard);
                 res.put("stateCode", "2");
                 res.put("msg", "读者登陆成功！");
-            } else {
+            }else if (isUser){
+                User user = new User();
+                user.setUserId(id);
+                user.setPassword(passwd);
+                String username = loginService.getUsername(id);
+                user.setUsername(username);
+                request.getSession().setAttribute("user", user);
+                res.put("stateCode", "3");
+                res.put("msg", "用户登陆成功！");
+            }
+            else {
                 res.put("stateCode", "0");
                 res.put("msg", "账号或密码错误！");
             }
         }
         else{
-            res.put("stateCode", "3");
+            res.put("stateCode", "4");
             res.put("msg", "验证码错误！");
         }
         return res;
@@ -87,6 +99,11 @@ public class LoginController {
     @RequestMapping("/reader_main.html")
     public ModelAndView toReaderMain(HttpServletResponse response) {
         return new ModelAndView("reader_main");
+    }
+//用户主页
+    @RequestMapping("/user_main.html")
+    public ModelAndView toUserMain(HttpServletResponse response){
+        return new ModelAndView("user_main");
     }
 
     @RequestMapping("/admin_repasswd.html")
@@ -112,14 +129,36 @@ public class LoginController {
             return "redirect:/admin_repasswd.html";
         }
     }
+    @RequestMapping("/user_repasswd.html")
+    public ModelAndView reUserPasswd() {
+        return new ModelAndView("user_repasswd");
+    }
 
+    @RequestMapping("/user_repasswd_do")
+    public String reUserPasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
+        User user = (User) request.getSession().getAttribute("user");
+        long id = user.getUserId();
+        String password = loginService.getUserPassword(id);
+        if (password.equals(oldPasswd)) {
+            if (loginService.userRePassword(id, newPasswd)) {
+                redirectAttributes.addFlashAttribute("succ", "密码修改成功！");
+                return "redirect:/user_repasswd.html";
+            } else {
+                redirectAttributes.addFlashAttribute("error", "密码修改失败！");
+                return "redirect:/user_repasswd.html";
+            }
+        } else {
+            redirectAttributes.addFlashAttribute("error", "旧密码错误！");
+            return "redirect:/user_repasswd.html";
+        }
+    }
     @RequestMapping("/reader_repasswd.html")
     public ModelAndView reReaderPasswd() {
         return new ModelAndView("reader_repasswd");
     }
 
     @RequestMapping("/reader_repasswd_do")
-    public String reReaderPasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
+    public String reReaderPasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, RedirectAttributes redirectAttributes) {
         ReaderCard reader = (ReaderCard) request.getSession().getAttribute("readercard");
         long id = reader.getReaderId();
         String password = loginService.getReaderPassword(id);

@@ -47,27 +47,27 @@ public class BookController {
 }
 
 
-    @RequestMapping("/query.html")
-    public ModelAndView queryDo(String searchType, String searchWord) {
+    @RequestMapping("/admin_query.html")
+    public ModelAndView adminQueryDo(String searchType, String searchWord) {
         if ("tsmc".equals(searchType)) {
-            return queryBookDo1(searchWord);
+            return adminQueryBookDo1(searchWord);
         }else if ("tszz".equals(searchType)){
-            return queryBookDo3(searchWord);
+            return adminQueryBookDo3(searchWord);
         }else if ("tsisbn".equals(searchType)){
-            return queryBookDo4(searchWord);
+            return adminQueryBookDo4(searchWord);
         }else if ("tslx".equals(searchType)){
-            return queryBookDo5(searchWord);
+            return adminQueryBookDo5(searchWord);
         }
         else {
-            return queryBookDo(searchWord);
+            return adminQueryBookDo(searchWord);
         }
     }
 
 
-    @RequestMapping("/querybook.html")
-    public ModelAndView queryBookDo(String searchWord) {
-        if (bookService.matchBook(searchWord)) {
-            ArrayList<Book> books = bookService.queryBook(searchWord);
+    @RequestMapping("/admin_querybook.html")
+    public ModelAndView adminQueryBookDo(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook(searchWord.trim());
             ModelAndView modelAndView = new ModelAndView("admin_books");
             modelAndView.addObject("books", books);
             return modelAndView;
@@ -76,10 +76,22 @@ public class BookController {
         }
     }
 
-    @RequestMapping("/querybook1.html")
-    public ModelAndView queryBookDo1(String searchWord) {
-        if (bookService.matchBook(searchWord)) {
-            ArrayList<Book> books = bookService.queryBook1(searchWord);
+    @RequestMapping("/admin_querybook1.html")
+    public ModelAndView adminQueryBookDo1(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook1(searchWord.trim());
+            ModelAndView modelAndView = new ModelAndView("admin_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("admin_books", "error", "没有匹配的图书");
+        }
+    }
+
+    @RequestMapping("/admin_querybook3.html")
+    public ModelAndView adminQueryBookDo3(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook3(searchWord.trim());
             ModelAndView modelAndView = new ModelAndView("admin_books");
             modelAndView.addObject("books", books);
             return modelAndView;
@@ -89,12 +101,10 @@ public class BookController {
     }
 
 
-
-
-    @RequestMapping("/querybook3.html")
-    public ModelAndView queryBookDo3(String searchWord) {
-        if (bookService.matchBook(searchWord)) {
-            ArrayList<Book> books = bookService.queryBook3(searchWord);
+    @RequestMapping("/admin_querybook4.html")
+    public ModelAndView adminQueryBookDo4(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook4(searchWord.trim());
             ModelAndView modelAndView = new ModelAndView("admin_books");
             modelAndView.addObject("books", books);
             return modelAndView;
@@ -103,11 +113,10 @@ public class BookController {
         }
     }
 
-
-    @RequestMapping("/querybook4.html")
-    public ModelAndView queryBookDo4(String searchWord) {
-        if (bookService.matchBook(searchWord)) {
-            ArrayList<Book> books = bookService.queryBook4(searchWord);
+    @RequestMapping("/admin_querybook5.html")
+    public ModelAndView adminQueryBookDo5(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook5(searchWord.trim());
             ModelAndView modelAndView = new ModelAndView("admin_books");
             modelAndView.addObject("books", books);
             return modelAndView;
@@ -116,18 +125,86 @@ public class BookController {
         }
     }
 
-    @RequestMapping("/querybook5.html")
-    public ModelAndView queryBookDo5(String searchWord) {
-        if (bookService.matchBook(searchWord)) {
-            ArrayList<Book> books = bookService.queryBook5(searchWord);
-            ModelAndView modelAndView = new ModelAndView("admin_books");
-            modelAndView.addObject("books", books);
-            return modelAndView;
-        } else {
-            return new ModelAndView("admin_books", "error", "没有匹配的图书");
+    @RequestMapping("/user_query.html")
+    public ModelAndView userQueryDo(String searchType, String searchWord) {
+        if ("tsmc".equals(searchType)) {
+            return userQueryBookDo1(searchWord);
+        }else if ("tszz".equals(searchType)){
+            return userQueryBookDo3(searchWord);
+        }else if ("tsisbn".equals(searchType)){
+            return userQueryBookDo4(searchWord);
+        }else if ("tslx".equals(searchType)){
+            return userQueryBookDo5(searchWord);
+        }
+        else {
+            return userQueryBookDo(searchWord);
         }
     }
 
+
+    @RequestMapping("/user_querybook.html")
+    public ModelAndView userQueryBookDo(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook(searchWord.trim());
+            ModelAndView modelAndView = new ModelAndView("user_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("user_books", "error", "没有匹配的图书");
+        }
+    }
+
+    @RequestMapping("/user_querybook1.html")
+    public ModelAndView userQueryBookDo1(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook1(searchWord.trim());
+            ModelAndView modelAndView = new ModelAndView("user_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("user_books", "error", "没有匹配的图书");
+        }
+    }
+
+
+
+
+    @RequestMapping("/user_querybook3.html")
+    public ModelAndView userQueryBookDo3(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook3(searchWord.trim());
+            ModelAndView modelAndView = new ModelAndView("user_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("user_books", "error", "没有匹配的图书");
+        }
+    }
+
+
+    @RequestMapping("/user_querybook4.html")
+    public ModelAndView userQueryBookDo4(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook4(searchWord.trim());
+            ModelAndView modelAndView = new ModelAndView("user_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("user_books", "error", "没有匹配的图书");
+        }
+    }
+
+    @RequestMapping("/user_querybook5.html")
+    public ModelAndView userQueryBookDo5(String searchWord) {
+        if (bookService.matchBook(searchWord.trim())) {
+            ArrayList<Book> books = bookService.queryBook5(searchWord.trim());
+            ModelAndView modelAndView = new ModelAndView("user_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("user_books", "error", "没有匹配的图书");
+        }
+    }
 
 
     @RequestMapping("/readerquery.html")
@@ -218,6 +295,14 @@ public class BookController {
         return modelAndView;
     }
 
+    @RequestMapping("/user_books.html")
+    public ModelAndView userBooks() {
+        ArrayList<Book> books = bookService.getAllBooks();
+        ModelAndView modelAndView = new ModelAndView("user_books");
+        modelAndView.addObject("books", books);
+        return modelAndView;
+    }
+
     @RequestMapping("/book_add.html")
     public ModelAndView addBook() {
         return new ModelAndView("admin_book_add");
@@ -263,6 +348,15 @@ public class BookController {
         return modelAndView;
     }
 
+    @RequestMapping("/user_book_detail.html")
+    public ModelAndView userBookDetail(HttpServletRequest request) {
+        long bookId = Long.parseLong(request.getParameter("bookId"));
+        Book book = bookService.getBook(bookId);
+        ModelAndView modelAndView = new ModelAndView("user_book_detail");
+        modelAndView.addObject("detail", book);
+        return modelAndView;
+    }
+
     @RequestMapping("/reader_book_detail.html")
     public ModelAndView readerBookDetail(HttpServletRequest request) {
         long bookId = Long.parseLong(request.getParameter("bookId"));
@@ -275,6 +369,11 @@ public class BookController {
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() {
         return new ModelAndView("admin_header");
+    }
+
+    @RequestMapping("/user_header.html")
+    public ModelAndView user_header() {
+        return new ModelAndView("user_header");
     }
 
     @RequestMapping("/reader_header.html")

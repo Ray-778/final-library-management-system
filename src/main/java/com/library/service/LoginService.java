@@ -1,5 +1,6 @@
 package com.library.service;
 
+import com.library.dao.UserDao;
 import com.library.pojo.ReaderCard;
 import com.library.dao.AdminDao;
 import com.library.dao.ReaderCardDao;
@@ -13,6 +14,8 @@ public class LoginService {
     private ReaderCardDao readerCardDao;
     @Autowired
     private AdminDao adminDao;
+    @Autowired
+    private UserDao userDao;
 
     public boolean hasMatchReader(long readerId,String password){
         return  readerCardDao.getIdMatchCount(readerId, password)>0;
@@ -20,6 +23,10 @@ public class LoginService {
 
     public String getAdminUsername(long adminId) {
         return adminDao.getUsername(adminId);
+    }
+
+    public String getUsername(long userId) {
+        return userDao.getUsername(userId);
     }
 
     public ReaderCard findReaderCardByReaderId(long readerId){
@@ -35,6 +42,17 @@ public class LoginService {
     }
     public String getAdminPassword(long adminId){
         return adminDao.getPassword(adminId);
+    }
+
+    public boolean hasMatchUser(long userId,String password){
+        return userDao.getMatchCount(userId, password) == 1;
+    }
+
+    public boolean userRePassword(long userId, String newPassword){
+        return userDao.resetPassword(userId,newPassword)>0;
+    }
+    public String getUserPassword(long userId){
+        return userDao.getPassword(userId);
     }
 
     public boolean readerRePassword(long readerId, String newPassword) {
